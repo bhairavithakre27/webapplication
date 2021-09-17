@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript</title>
+        <script>
+            function bodyload(){
+               document.querySelector("#pic").src="../public/assets/shoes.jpeg";
+               document.querySelector(".register").value="Register";
+            }
+        </script>
+    </head>
+    <body onload="bodyload()">
+        <img name="pic" id=pic width="100" height="100" border="1">
+        <div>
+            <form name="frmRegister">
+                <h3>Register</h3>
+                Name: <input type="text" name="txtName"> <input class="register" id="btnRegister" name="btnRegister" type="button">
+            </form>
+        </div>
+        <div>
+            <form name="frmLogin">
+                <h3>Login</h3>
+                <input type="email" name="txtEmail"> <input id="btnLogin" name="btnLogin" type="button">
+            </form>
+        </div>
+    </body>
+</html>
+    

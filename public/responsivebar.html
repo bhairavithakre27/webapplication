@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Responsive</title>
+        <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+   <meta name="viewport" content="width=device-width,initial-scale=2.0">
+   <style>
+       ul{
+           list-style: none;
+       }
+       li{
+           border:1px solid darkcyan;
+           color:white;
+           text-align: center;
+           background-color: darkcyan;
+           width: 200px;
+           margin-bottom: 10px;
+           padding:10px;
+           font-size: 20px;
+       }
+       @media screen and (orientation:landscape){
+         body{
+         background-image: url("assets/netflix-background-9.jpg");
+         background-size: 100%;
+         }
+
+    li{
+        display:inline;
+        margin-right: 20px;
+    }
+}
+@media screen and (orientation:portrait){
+    body{
+        background-image: url("assets/saree.jpeg");
+        background-size: 100%;
+    }
+    li{
+        display: block;
+        margin-bottom: 20px;
+    }
+}   
+@media screen and (min-width:500px){
+   body{
+       background-color: yellow;
+   }
+}
+
+@media screen and (max-width:700px){
+    body{
+        background-color:red;
+       
+    }
+    li{
+        display: block;
+        margin-bottom: 20px;
+    }
+}
+    </style>
+    </head>
+    <body>
+          <nav>
+              <ul>
+                  <li><span class="bi bi-house-door-fill"></span>Home</li>
+                  <li><span class="bi bi-facebook"></span>Facebook</li>
+                  <li><span class="bi bi-instagram"></span>Instagram</li>
+                  <li><span class="bi bi-youtube"></span>Youtube</li>
+
+              </ul>
+          </nav>
+    </body>
+</html>

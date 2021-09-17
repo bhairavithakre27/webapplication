@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript</title>
+        <script>
+            function bodyload(){
+               pic.src="../public/assets/shoes.jpeg";
+               frmRegister.btnRegister.value="Register";
+               frmLogin.btnLogin.value="Login"
+            }
+        </script>
+    </head>
+    <body onload="bodyload()">
+        <img name="pic" width="100" height="100" border="1">
+        <div>
+            <form name="frmRegister">
+                <h3>Register</h3>
+                Name: <input type="text" name="txtName"> <input name="btnRegister" type="button">
+            </form>
+        </div>
+        <div>
+            <form name="frmLogin">
+                <h3>Login</h3>
+                <input type="email" name="txtEmail"> <input name="btnLogin" type="button">
+            </form>
+        </div>
+    </body>
+</html>
+    

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Register</title>
+    </head>
+    <style>
+        .container{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            height:400px;
+        }
+        .login{
+            border:2px solid;
+            border-radius: 10px;
+            padding: 30px;
+            width:300px;
+            font-family: Arial;
+        }
+        
+        label{
+            margin-bottom: 10px;
+        }
+        .form-group{
+            margin-bottom: 20px;
+        }
+        .form-control{
+            margin-top:10px;
+            width:100%;
+            height:30px;
+            font-family: Arial;
+            font-size: 20px;
+        }
+        .pin{
+            margin-top:10px;
+            width:80px;
+            height:30px;
+            font-family: Arial;
+            font-size: 20px;
+            
+        }
+    </style>
+    <body>
+       <div class="container">
+           <form>
+            <div class="login">
+                <h3>Register</h3>
+                <div class="form-group">
+                    <label for="UserName">User Name</label>
+                    <div>
+                        <input type="text" minlength="3" maxlength="4" required autofocus placeholder="Name in Block letters" name="UserName" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <label for="pin">PIN</label>
+                        <input type="text" maxlength="4" size="20">
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <button class="form-control">Register</button>
+      
+                </div>
+                 </div>
+      
+           </form>
+       </div>
+    </body>
+</html>

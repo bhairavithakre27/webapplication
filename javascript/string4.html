@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>String Demo</title>
+        <script>
+            function ColorChange(){
+                  var colorname = document.getElementById("lstColors").value;
+                  var msg = "string Formatting in HTML";
+                  document.querySelector("h1").innerHTML = msg;
+                  document.querySelector("h1").style.color = colorname;
+            }
+            function ChangeCase(){
+                var username = document.getElementById("txtName").value;
+                document.getElementById("txtName").value = username.toUpperCase();
+                 var msg = document.getElementById("msg");
+                 if(username.length<4){
+                     msg.innerHTML = "Name too short.. min 4 chars required";
+                 } else if(username.length>10){
+                     msg.innerHTML = "Name too long max 10 chars only";
+                 } else{
+                     msg.innerHTML = "";
+                 }
+            }
+        </script>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Register</legend>
+            user Name :
+            <input type="text" onkeyup="ChangeCase()" id="txtName" placeholder="name in Block Letters">
+            <span id="msg" style=color:red;></span>
+        </fieldset>
+        <fieldset>
+            <legend>Select a Color</legend>
+            <select id="lstColors" onchange="ColorChange()">
+                <option value="black">Default</option>
+                <option value="red">Red</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+            </select>
+        </fieldset>
+        <h1 align="center">String Formatting in HTML</h1>
+    </body>
+</html>

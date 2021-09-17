@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dropdown list</title>
+   <style>
+       select{
+           width:200px;
+         
+           font-size: 16px;
+       }
+   </style>
+</head>
+    <body>
+      <form>
+        <fieldset>
+            <legend>Select a City</legend>
+            <select name="category" size="3" multiple>
+              <option>All</option>
+            <optgroup label="Electronics">
+                <option>Speaker</option>
+                <option value="wf101">Watches</option>
+                <option selected>Mobiles</option>
+            </optgroup>
+            <optgroup label="Footwear">
+                <option disabled>Nile Casuals</option>
+                <option>Lee Boot</option>
+           </optgroup>
+            </select>
+            <button>Submit</button>
+        </fieldset>
+      </form>
+    </body>
+</html>

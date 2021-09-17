@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Data Type</title>
+        <script>
+            function SubmitClick(){
+                var age = document.getElementById("txtAge").value;
+                 var msg = document.querySelector("p");
+                 if(isNaN(age)){
+                  msg.innerHTML = "Invalid - Age must be a number";
+                 } else {
+                     document.write("Age Verified");
+                 }
+                }
+        </script>
+    </head>
+    <body>
+        Age :
+        <input type="text" id="txtAge">
+        <button onclick="SubmitClick()">Submit</button>
+        <p>
+    </body>
+</html>

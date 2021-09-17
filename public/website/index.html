@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Amazon | Shopping</title>
+        <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        header{
+            background-color: tomato;
+            color: wheat;
+            text-align: center;
+        }
+        iframe{
+            border:none;
+        }
+        section{
+            display:grid;
+            grid-template-columns: 3fr 9fr;
+        }
+        ul{
+            list-style: none;
+        }
+        li{
+            margin-bottom: 20px;
+            border:1px solid black;
+            background-color: tomato;
+            width:150px;
+            color:white;
+            padding: 4px;
+            font-size: 20px;
+            
+            
+    
+        }
+        a{
+            color:white;
+            text-decoration:none;
+            
+        }
+    </style>
+    
+    </head>
+    <body>
+        <header>
+            <h1><span class="bi bi-cart4"></span>Amazon Shopping</h1>
+         </header>
+         <section>
+             <nav>
+                 <ul>
+                     <li><a href="home.html" target="frameBody">Home</a></li>
+                     <li><a href="electronics.html"target="frameBody">Electronics</a></li>
+                     <li><a href="footwear.html"target="frameBody">Footwear</a></li>
+                     <li><a href="fashion.html"target="frameBody">Fashion</a></li>
+                     <li><a href="https://www.youtube.com/embed/H7akPKxwUto"target="frameBody">Prime Video</a></li>
+                     <li><a href="tutorial.html"target="frameBody">HTML tutorial</a></li>
+                     <li><a href="csstutorial.html"target="frameBody">CSS Tutorial</a></li>
+                 </ul>
+              </nav>
+             <main>
+                 <iframe name="frameBody" src="home.html" width="100%" height="300"></iframe>
+ </main>
+         </section>
+         
+    </body>
+</html>

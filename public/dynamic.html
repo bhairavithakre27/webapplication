@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Styles Demo</title>
+       <style>
+            a:link {
+            font-size:30px;
+            text-decoration: none;
+            color:red;
+            }
+            a:visited{
+                color:green;
+            }
+            img {
+                width:100px;
+                height: 100px;
+            }
+            img:hover {
+                width:400px;
+                height:400px;
+            }
+            a:active{
+                color:red;
+            }
+            #txtName+span{
+                display:none;
+            }
+            #txtName:focus+span{
+                display:inline;
+            }
+            #txtName:focus{
+                border:2px solid red;
+                box-shadow:2px 3px 2px green;
+            }
+            ul{
+                display:flex;
+                list-style: none;
+               }
+               li{
+                   margin-right: 20px;
+               }
+               .box{
+                   border:2px solid;
+                   padding:20px;
+                   background-color: gray;
+                   color:white;
+    }
+    .box:target{
+        background-color: black;
+        color: white;
+    }
+       </style>
+    </head>
+    <body>
+       <ul>
+           <li><a href="#html">HTML</a></li>
+           <li><a href="#css">CSS</a></li>
+           <li><a href="#js">Javascript</a></li>
+       </ul>
+       <div id="html" class="box">
+           <h2>HTML</h2>
+           </div>
+           <div id="css" class="box">
+               <h2>CSS</h2>
+               <p>It defines styles for HTML</p>
+            </div>
+            <div id="js" class="box">
+                <h2>Javascript</h2>
+                <p>It is a language</p>
+
+            </div>
+    </body>
+</html>

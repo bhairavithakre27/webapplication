@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSS Display</title>
+        <style>
+          select, button{
+              width:200px;
+              height:40px;
+              font-size:20px;
+              margin:10px;
+          }
+          .toolbar1, .toolbar2 {
+              display:flex;
+              flex-direction: column;
+              border:2px solid;
+              padding:10px;
+              justify-content: space-between;
+              align-items: center;
+              height:300px;
+              width:200px;
+            }
+            .toolbar1{
+                float:left;
+            }
+            .toolbar2{
+                float: right;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="toolbar1">
+        <div>
+            <select>
+                <option>Select state</option>
+                <option>State-1</option>
+                <option>State-2</option>
+            </select>
+        </div>
+        <div>
+            <select>
+                <option>Select city<option>
+                <option>City-1</option>
+                <option>City-2</option>
+            </select>
+        </div>
+       <div>
+            <select>
+                <option>Select Movie</option>
+                <option>Movie-1</option>
+                <option>Movie-2</option>
+            </select>
+            </div>
+            <div>
+                <select>
+                    <option>Show time</option>
+                    <option>11:00 Am</option>
+                    <option>4:30 PM</option>
+                </select>
+                </div>
+                <div>
+                   <button>Book Seat</button>
+                </div>
+            </div>
+        </div>
+        <div class="toolbar2">
+            <div>
+                <select>
+                    <option>Select state</option>
+                    <option>State-1</option>
+                    <option>State-2</option>
+                </select>
+            </div>
+            <div>
+                <select>
+                    <option>Select city<option>
+                    <option>City-1</option>
+                    <option>City-2</option>
+                </select>
+            </div>
+           <div>
+                <select>
+                    <option>Select Movie</option>
+                    <option>Movie-1</option>
+                    <option>Movie-2</option>
+                </select>
+                </div>
+                <div>
+                    <select>
+                        <option>Show time</option>
+                        <option>11:00 Am</option>
+                        <option>4:30 PM</option>
+                    </select>
+                    </div>
+                    <div>
+                       <button>Book Seat</button>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </body>
+</html>

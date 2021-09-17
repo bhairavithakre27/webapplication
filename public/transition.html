@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Transition</title>
+        <style>
+            .section{
+                width:300px;
+                height:150px;
+            }
+            .box{
+                width:100px;
+                height:100px;
+                background-color: red;
+                color:white;
+                font-size: 20px;
+                left:0px;
+                top:0px;
+                position:absolute;
+                transition-duration: 2s;
+                transition-delay: 2s;
+            }
+            .box:hover {
+                width:300px;
+                height:150px;
+                background-color:darkorchid;
+                color:white;
+                font-size: 20px;
+                left:0px;
+                top:0px;
+                position:absolute;
+                transition-duration: 2s;
+                transition-delay: 3s;
+                transition-property: width, height;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="section">
+            <div class="box">
+            Text Effects
+            </div>
+          </div>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Boolean</title>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+     <script>
+         function StockChange(){
+            var lblStock = document.getElementById("lblStock");
+            var Stock = document.getElementById("Stock");
+            var btnCart = document.getElementById("btnCart");
+
+            if(Stock.checked==true){
+                lblStock.innerHTML = "Available";
+                btnCart.disabled = false;
+            } else {
+                lblStock.innerHTML = "Out of Stock";
+                btnCart.disabled = true;
+            }
+         }
+     </script>
+     <style>
+         button:disabled {
+             cursor: not-allowed;
+         }
+     </style>
+    </head>
+    <body class="container-fluid">
+       <fieldset>
+           <legend>Stock</legend>
+           <div class="form-check form-switch">
+               <input type="checkbox" id="Stock" onchange="StockChange()" class="form-check-input"> <label id="lblStock" class="form-check-label"> Out of Stock</label>
+           </div>
+           <div class="mt-2">
+             <button id="btnCart" disabled class="btn btn-danger"><span class="bi bi-cart3"></span>Add to Cart</button>
+           </div>
+       </fieldset>
+    </body>
+</html>

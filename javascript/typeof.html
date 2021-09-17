@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Data Type</title>
+        <script>
+            function SubmitClick(){
+                var age = document.getElementById("txtAge").value;
+                 var msg = document.querySelector("p");
+               if((typeof parseInt(age))=="number") {
+                 msg.innerHTML = "Verified";
+               } else {
+                   msg.innerHTML = "Invalid Age - It must be a number";
+               }
+                }
+        </script>
+    </head>
+    <body>
+        Age :
+        <input type="text" id="txtAge">
+        <button onclick="SubmitClick()">Submit</button>
+        <p></p>
+    </body>
+</html>

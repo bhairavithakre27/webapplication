@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript</title>
+        <script>
+            function bodyload(){
+                window.document.images[0].src="../public/assets/shirt.jpeg";
+                window.document.forms[0].elements[1].value="register";
+                window.document.forms[1].elements[1].value="login";
+            }
+        </script>
+    </head>
+    <body onload="bodyload()">
+        <img width="100" height="100" border="1">
+        <div>
+            <form>
+                <h3>Register</h3>
+                Name: <input type="text"> <input type="button">
+            </form>
+        </div>
+        <div>
+            <form>
+                <h3>Login</h3>
+                <input type="email"> <input type="button">
+            </form>
+        </div>
+    </body>
+</html>
+    

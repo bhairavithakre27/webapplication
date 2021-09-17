@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>String Demo</title>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+        <script>
+            function VerifyCard(){
+                var cardnumber = document.getElementById("txtCard").value;
+                var pic = document.getElementById("pic");
+                if(cardnumber.startsWith("4444")){
+                    pic.src = "../public/assets/visa.jfif";
+                }  else if(cardnumber.startsWith("5555")) {
+                    pic.src ="../public/assets/mastercard.jfif";
+                }   else {
+                        pic.src="";
+                        pic.alt="invalid"
+                }
+            }
+            function VerifyEmail(){
+                var email = document.getElementById("txtEmail").value;
+                var lblEmail = document.getElementById("lblEmail");
+                 if(email.indexOf("@")==-1) {
+                     lblEmail.innerHTML = "Invalid Email - Please Include @";
+                 } else {
+                     if(email.endsWith("gmail.com")) {
+                         lblEmail.innerHTML ="";
+                     } else {
+                         lblEmail.innerHTML = "Invalid : Not a valid Gmail Account";
+                     }
+                 }
+                }
+                function VerifyName(){
+                 var username = document.getElementById("txtName").value;
+                 var lblName = document.getElementById("lblName");
+                 if(username.charCodeAt(0)>=65 && username.charCodeAt(0)<=90){
+                     lblName.innerHtml ="";
+                  } else {
+                      lblName.innerHTML = "Invalid : User Name Must start with upper case letter";
+                  }
+                }
+                function VerifyPassword(){
+                    var password = document.getElementById("txtpwd").value;
+                    var lblPassword = document.getElementById("lblPassword");
+                    var regExp = /[A-z]{4,15}/;
+                    if(password.match(regExp)) {
+                        lblPassword.innerHTML = "";
+                    } else {
+                        lblPassword.innerHTML = "Invalid : Password 4 to 15 chars Uppercase only"
+                    }
+                }
+            </script>
+          </head>
+  <body class="container-fluid">
+      <fieldset>
+          <legend>Your Password</legend>
+          <div>
+              <input type="password" onkeyup="VerifyPassword()"  id="txtpwd" class="form-control">
+              <div class="text-danger" id="lblPassword"></div>
+          </div>
+      </fieldset>
+      <fieldset>
+          <legend>Your Credit Card Number</legend>
+          <div class="input-group">
+              <input type="text" placeholder="Name must start with uppercase letter" onkeyup="VerifyCard()" id="txtCard" class="form-control">
+              <span class="input-group-text"><img id="pic" width="50" height="30"></span>
+          </div>
+      </fieldset>
+      <fieldset>
+          <legend>Your Gmail Address</legend>
+          <div>
+              <input type="text" onkeyup="VerifyEmail()" id="txtEmail" class="form-control">
+               <div id="lblEmail" class="text-danger"></div>
+            </div>
+      </fieldset>
+      <fieldset>
+          <legend>User Name</legend>
+          <div>
+              <input type="text" onkeyup="VerifyName()" id="txtName" class="form-control">
+            <div id="lblName" class="text-danger"></div>
+            </div>
+      </fieldset>
+  </body>
+</html>

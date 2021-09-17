@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Responsive</title>
+        <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/">
+        <style>
+            ul{
+                list-style: none;
+            }
+            li{
+                border:2px solid black;
+                background-color: darkcyan;
+                border-radius: 20px;
+                font-size: 20px;
+                font-weight: bold;
+                color:white;
+                width:120px;
+                margin-bottom: 20px;
+                padding:20px;
+                }
+          @media screen and (orientation:landscape){
+              ul{
+                  display:flex;
+              }
+              li{
+                  margin-left:50px;
+              }
+          }
+          @media screen and (orientation:portrait){
+            ul{
+                   display:block;
+                   background-color: darkcyan;
+                   width:20px;
+                   transform:translatex(-60px);
+                   transition:2s;
+               }
+               ul:hover{
+                   margin-left:0px;
+                   transition:2s;
+               }
+               .menuitem{
+                   display:none;
+               }
+               li{
+                   width:20px;
+                   border:none;
+               }
+           }
+          
+        </style>
+    </head>
+    <body>
+     <nav>
+         <ul>
+             <li><span class="fas fa-home"></span><span class="menuitem">Home</span></li>
+             <li><span class="fa fa-globe"></span><span class="menuitem">Network</span></li>
+             <li><span class="fa fa-envelope"></span><span class="menuitem">contact</span></li>
+             <li><span class="fab fa-facebook"></span><span class="menuitem">social</span></li>
+</ul>
+     </nav>
+    </body>
+</html>
