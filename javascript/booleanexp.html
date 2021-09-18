@@ -18,6 +18,15 @@
                 btnCart.disabled = true;
             }
          }
+         function PreviewChange(){
+             var Preview = document.getElementById("Preview");
+             var productPhoto = document.getElementById("productPhoto");
+             if(Preview.checked==true) {
+                 productPhoto.style.display = "block";
+                 } else {
+                     productPhoto.style.display = "none";
+                 }
+            }
      </script>
     </head>
     <body class="container-fluid">
@@ -30,5 +39,14 @@
              <button id="btnCart" disabled class="btn btn-danger"><span class="bi bi-cart3"></span>Add to Cart</button>
            </div>
        </fieldset>
+       <fieldset>
+           <label>Preview Images</label>
+           <div class="form-check form-switch">
+             <input type="checkbox" onchange="PreviewChange()" id="Preview" class="form-check-input">
+           </div>
+           <div class="mt-2" id="productPhoto" style="display: none;">
+             <img src="../public/assets/shoes.jpeg" width="100" height="100">
+           </div>
+        </fieldset>
     </body>
 </html>
