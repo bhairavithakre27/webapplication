@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Prompt</title>
+        <script>
+            function AddClick(){
+                foldername=prompt("Enter folder Name")
+                if(foldername==""){
+                    document.write("Name can't be Empty");
+                } else if(foldername==null) {
+                    document.write("you cancelled")
+                } else {
+                    document.querySelector("p").innerHTML="Folder Created :"+ foldername;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <button onclick="AddClick()">Add new Folder</button>
+    <p></p>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<script>
+    function f1(){
+       var product = {
+           "Name": "",
+           "Price":"0",
+           "Stock" : false,
+           "ShippiedTo":[],
+           "Quantity":2,
+           "Total": function(){
+               return this.Quantity * this.Price;
+
+           },
+           "Print":function(){
+               document.write(`Name=${this.Name}<br>Price=${this.Price}<br>Stock=${this.Stock}<br>ShippiedTo=${this.ShippiedTo}<br>Quantity=${this.Quantity}<br>Total=${this.Total()}<br><br>`);
+           }
+
+       }
+       document.write("---------TV Details--------<br>");
+        product.Name = "Samsung Tv";
+        product.Price = 56700.00;
+        product.Stock = true;
+        product.ShippiedTo = ["Delhi","Hyd"];
+        product.Quantity = 2;
+        product.Print();
+        document.write("-------Shoe Details------<br>");
+        product.Name ="Nike Casuals";
+        product.Price=40000.00;
+        product.Stock = true;
+        product.ShippiedTo = ["Hyd", "Mumbai"];
+        product.Quantity=3;
+        product.Print();
+
+    }
+    f1();
+</script>

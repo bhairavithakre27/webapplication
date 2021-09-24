@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Array</title>
+        <script>
+            function bodyload(){
+                var div = document.createElement("div");
+                div.innerHTML = "Div Text"
+                var pic = document.createElement("img");
+                pic.src="../public/assets/shirt.jpeg";
+                pic.width="100";
+                pic.height="100";
+                document.querySelector("p").appendChild(div);
+                document.querySelector("p").appendChild(pic);
+            }
+        </script>
+    </head>
+    <body onload="bodyload()">
+        <p>
+            some text.
+        </p>
+    </body>
+</html>

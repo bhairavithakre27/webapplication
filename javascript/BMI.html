@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BMI calculator</title>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+        <style>
+            .lblweight, .weight-range{
+                font-size:3px;
+                display: block;
+               }
+
+               .container{
+                   height: 100%;
+                   width:500px;
+                   border: 2px solid black;
+                   margin: 2px;
+                   padding: 5px;
+               }
+        </style>
+        <script>
+           function Calculate(){
+             document.getElementById("bmi-sh").style.display = "block";
+
+            var weight = document.getElementById("txtWeight").value;
+            var height = document.getElementById("txtHeight").value;
+            var tri = document.getElementById("tri").value;
+
+            var BMI = weight/(height/100*height/100);
+            BMI = BMI.toFixed(2);
+            document.getElementById("BMI").innerHTML = BMI;
+ 
+            if(BMI>=0 && BMI< 25){
+                tri.style.left = "10%";
+            } else if(BMI >=25 && BMI < 50){
+                tri.style.left="34%";
+            } else if(BMI >=50 && BMI <75) {
+                tri.style.left="60%"
+            } else if(BMI >=75 && BMI <100) {
+                tri.style.left="85%"
+            }
+
+           }
+        </script>
+    </head>
+    <body>
+        <h2 class="mt-2 text-center">BMI Calculator</h2>
+       <div class="d-flex justify-content-center align-items-center">
+        <div class="container">
+          
+            <div>
+                <label class="mt-2 p-2">Age(above 1 year)</label>
+            <input type="text" id="txtAge" placeholder="year" class="form-control">
+            
+            </div>
+            <div>
+                <label class="mt-2 p-2">Weight</label>
+            <input type="text" id="txtWeight" placeholder="cm" class="form-control">
+            </div>
+            <div>
+                <label class="mt-2 p-2">Height</label>
+            <input type="text" id="txtHeight" placeholder="kg" class="form-control">
+            </div>
+            <div class="mt-3">
+                <label class="form-label text-danger"></label>
+                <input type="radio" name="gender"> male
+                <input type="radio" name="gender"> Female
+             </div>
+             <div class="mt-3">
+                <button onclick="Calculate()" class="btn btn-primary">Calculator</button>
+               </div>
+
+        </div>
+
+       </div>
+      
+      
+       
+       <div class="mt-5 col d-flex justify-content-center">
+           <div class="bmi-op" id="bmi-sh" style="display:none;">
+            <div>
+                <p>BMI can be used to screen for weight categories that may lead to health problems but it is not diagnostic of the body fatness or health of an individual. Learn more about using BMI at cdc.gov</p>
+                <h4>Your BMI is<span id="BMI"></span></h4>
+            </div>
+
+            <div class="progress mt-4">
+                <div class="progress-bar bg-warning" style="width: 25%""></div>
+                <div class="progress-bar bg-warning" style="width: 25%""></div>
+                <div class="progress-bar bg-warning" style="width: 25%""></div>
+                <div class="progress-bar bg-warning" style="width: 25%""></div>
+                <div class="position-absolute" id="tri"></div>
+                   <div class="traingle"></div>
+             </div>
+
+             <div class="row mt-3">
+                <div class="col">
+                 <span class="lblweight">Underweight</span>
+                 <span class="weight-range">Below 53kg</span>
+                </div>
+                <div class="col">
+                    <span class="lblweight">Normal</span>
+                    <span class="weight-range">53 - 73 kg</span>
+                   </div>
+                   <div class="col">
+                    <span class="lblweight">Overweight</span>
+                    <span class="weight-range">71 - 85 kg</span>
+                   </div>
+                   <div class="col">
+                    <span class="lblweight">Obese</span>
+                    <span class="weight-range">Above 85 kg</span>
+                   </div>
+    
+               </div>
+
+           </div>
+         
+       </div>
+        <script src="../node_modules/jquery/dist/jquery.js"></script>
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    </body>
+</html>
