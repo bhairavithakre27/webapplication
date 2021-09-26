@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+   <head>
+       <title>Style</title>
+       <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+   <script>
+       function LoginClick(){
+           var username = document.getElementById("txtName").value;
+           var password = document.getElementById("txtPassword").value;
+           var msg = document.getElementById("msg");
+           
+           if(username=="john" && password=="admin")
+           {
+              msg.innerHTML = "Login Success";
+              msg.className = "text-success"
+
+           } else {
+               msg.innerHTML = "Invalid credentials";
+               msg.className = "text-danger";
+            }
+       
+        }
+   </script>
+    </head>
+   <body class="container-fluid">
+      <fieldset>
+          <legend>UserLogin</legend>
+          <dl>
+              <dt>UserName</dt>
+              <dd><input type="text" id="txtName"</dd>
+              <dt>Password</dt>
+              <dd><input type="password" id="txtPassword"</dd>
+            </dl>
+         <button onclick="LoginClick()">Login</button>
+      </fieldset>
+      <p id="msg" align="center"></p>
+   </body>
+</html>

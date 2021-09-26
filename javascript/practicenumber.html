@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Number</title>
+        <script>
+           function SubmitClick(){
+            var n1 = document.getElementById("n1").value;
+           var n2 = document.getElementById("n2").value;
+          var addition = parseInt(n1) + parseInt(n2);
+           document.querySelector("p").innerHTML = "Addition=" + addition;
+
+           }
+        </script>
+    </head>
+    <body>
+       N1: <input type="text" id="n1">
+       <br>
+       N2:<input type="text" id="n2">
+         <br>
+       <button onclick="SubmitClick()">Add</button>
+   <p></p>
+    </body>
+</html>
