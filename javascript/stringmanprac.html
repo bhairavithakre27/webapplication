@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>String</title>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function VerifyCard(){
+            var cardnumber = document.getElementById("txtCard").value;
+            var pic = document.getElementById("pic");
+
+         if(cardnumber.startsWith("4444")){
+             pic.src="../public/assets/mastercard.jfif";
+         } else if (cardnumber.startsWith("5555")){
+             pic.src="../public/assets/visa.jfif";
+         } else {
+             pic.src="";
+             pic.alt="invalid"
+         }
+        }
+        function VerifyEmail(){
+            var email = document.getElementById("txtEmail").value;
+            var lblEmail = document.getElementById("lblEmail");
+            
+            if(email.indexOf("@")==-1) {
+                lblEmail.innerHTML = "Invalid Email - please include @";
+            } else {
+                if(email.endsWith("gmail.com")){
+                lblEmail.innerHTML="";
+            } else {
+                lblEmail.innerHTML="invalid: please enter valid Email ID"
+            }
+            }
+            
+        }
+        function VerifyName(){
+            var username = document.getElementById("txtName").value;
+            var lblName = document.getElementById("lblName")
+        
+            if(username.charCodeAt(0)>=65 && username.charCodeAt(0)<=90) {
+                lblName.innerHTML = "";
+            } else {
+                lblName.innerHTML = "Invalid : Name must start with upper case letter";
+            }
+        }
+        function VerifyPassword(){
+            var password = document.getElementById("txtPwd").value;
+            var lblPassword = document.getElementById("lblPassword");
+            var regExp = /(?=.*[A_Z])\w{4,10}/;
+            if(password.match(regExp)) {
+                lblPassword.innerHTML = "";
+            } else {
+                lblPassword.innerHTML = "invalid : password 4 to 10 atleast one Uppercase letter";
+            }
+        }
+    </script>
+    
+    </head>
+    <body class="container-fluid">
+        <fieldset>
+            <legend>Your Password</legend>
+            <div>
+                <input type="password" onkeyup="VerifyPassword()" id="txtPwd" class="form-control">
+               <div class="text-danger" id="lblPassword"></div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Your Credit Card Number</legend>
+            <div class="input-group">
+                <input type="text" onkeyup="VerifyCard()" id="txtCard" class="form-control">
+                <span class="input-group-text"><img id="pic" width="50"></span>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Your Gmail Address</legend>
+            <div class="input-group">
+           <input type="text" onkeyup="VerifyEmail()"  class="form-control" id="txtEmail">
+             <div id="lblEmail" class="text-danger"></div>
+        </div>
+        </fieldset>
+        <fieldset>
+            <legend>User Name</legend>
+            <div>
+                <input type ="text" placeholder="name must start with uppercase letter" onkeyup="VerifyName()" id="txtName" class="form-control">
+              <div id="lblName" class="text-danger"></div>
+            </div>
+        </fieldset>
+    </body>
+</html>

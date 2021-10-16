@@ -1,0 +1,16 @@
+<script>
+    function f1()
+    {
+                var data = new Map();
+                data.set(101,"Samsung Tv Flat 50% OFF")
+                     .set(102,"Nike Casuals 30% OFF")
+                     .set(103,"Shirt- New Arrivals")
+                     .set("Offers","Special offers on Tv,Nike Casuals on Shirt");
+
+                      for(var key of data.entries()){
+                        document.write(key + "<br>")
+                    }
+                    document.write(data.get("Offers"));
+    }
+    f1();
+</script>

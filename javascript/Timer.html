@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Timer</title>
+        <script>
+            function GetTime(){
+                var now = new Date();
+                var clock = now.toLocaleTimeString();
+                document.querySelector("h1").innerHTML =clock;
+            }
+            function bodyload(){
+                setInterval(GetTime,1000);
+            }
+        </script>
+    </head>
+    <body onload="bodyload()">
+        <h1 align="center"></h1>
+    </body>
+</html>

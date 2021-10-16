@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lambda</title>
+        <script>
+            function bodyload(){
+                fetch(`http://fakestoreapi.com/products`)
+                .then(response=> response.json())
+                .then(data=>{
+                var electronics = data.filter(product=> product.category=="electronics");
+                    for(var item of electronics){
+                        var li = document.createElement("li");
+                        li.innerHTML = item.title;
+                        document.querySelector("ol").appendChild(li);
+                    }
+                })
+            }
+        </script>
+    </head>
+    <body onload="bodyload()">
+       <ol>
+
+       </ol>
+    </body>
+</html>

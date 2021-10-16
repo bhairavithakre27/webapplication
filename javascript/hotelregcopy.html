@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+    <head>
+        <title>JW Marriott</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+        <script>
+            function RegisterClick() {
+                document.getElementById("lblName").innerHTML = document.getElementById("txtName").value;
+                document.getElementById("lblDate").innerHTML = document.getElementById("txtDate").value;
+                document.getElementById("lblDays").innerHTML = document.getElementById("txtDays").value;
+                document.getElementById("lblPersons").innerHTML = document.getElementById("txtPersons").value;
+
+                var roomType = "";
+                var roomCost = 0;
+
+                var optDeluxe = document.getElementById("optDeluxe");
+                var optSuite = document.getElementById("optSuite");
+
+                if(optDeluxe.checked) {
+                    roomType = optDeluxe.value;
+                    roomCost = 9565;
+                } else if(optSuite.checked) {
+                    roomType = optSuite.value;
+                    roomCost = 15720;
+                }
+
+                var amenities = "";
+                var amenitiesCost = 0;
+
+                var optFitness = document.getElementById("optFitness");
+                var optSpa = document.getElementById("optSpa");
+
+                if(optFitness.checked) {
+                    amenitiesCost = 295;
+                    amenities += optFitness.value + "<br>";
+                }
+                if(optSpa.checked) {
+                    amenitiesCost = 965;
+                    amenities += optSpa.value + "<br>";
+                }
+
+                document.getElementById("lblRoom").innerHTML = roomType;
+                document.getElementById("lblAmenities").innerHTML = amenities;
+                document.getElementById("lblAdv").innerHTML = "&#8377;" + document.getElementById("Advance").value;
+                
+                var totalDays = document.getElementById("txtDays").value;
+                var totalGuest = document.getElementById("txtPersons").value;
+                var totalAmt = (roomCost*totalDays) + (amenitiesCost*totalGuest);
+                document.getElementById("lblTotal").innerHTML = "&#8377;" + totalAmt;
+
+                var balAmt = totalAmt - document.getElementById("Advance").value;
+                document.getElementById("lblBal").innerHTML = "&#8377;" + balAmt;
+            }
+            function DeluxeRate() {
+                alert("Room Tariff is 9565 INR/Night");
+            }
+            function SuiteRate() {
+                alert("Room Tariff is 15720 INR/Night");
+            }
+            function GymRate() {
+                alert("Fitness Centre Charges is 295 INR/Member");
+            }
+            function SpaRate() {
+                alert("Spa Treatment Charges is 965 INR/Person");
+            }
+        </script>
+    </head>
+    <body class="container-fluid">
+        <header class="mt-2">
+            <img src="../public/assets/JWHeader.PNG" width="100%" height="120">
+        </header>
+        <section>
+            <div class="accordion mt-3" id="form">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="btn btn-secondary w-100" data-bs-target="#custInfo" data-bs-toggle="collapse">Customer Info</button>
+                    </h2>
+                    <div class="accordion-collapse collapse show" id="custInfo" data-bs-parent="#form">
+                        <div class="accordion-body bg-dark text-white">
+                            <div>
+                                <dl class="row">
+                                    <dt class="col-4">Customer Name</dt>
+                                    <dd class="col-8"><input type="text" id="txtName" class="form-control w-75" required></dd>
+                                    <dt class="col-4">Check In Date</dt>
+                                    <dd class="col-8"><input type="date" id="txtDate" class="form-control w-75" required></dd>
+                                    <dt class="col-4">Total Number of Days</dt>
+                                    <dd class="col-8"><input type="number" id="txtDays" class="form-control w-75" required value="1"></dd>
+                                    <dt class="col-4">Total Number of Persons</dt>
+                                    <dd class="col-8"><input type="number" id="txtPersons" class="form-control w-75" required value="2"></dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="btn btn-secondary w-100" data-bs-target="#roomBook" data-bs-toggle="collapse">Select Room Type</button>
+                    </h2>
+                    <div class="accordion-collapse collapse" id="roomBook" data-bs-parent="#form">
+                        <div class="accordion-body bg-dark">
+                            <div class="row my-3">
+                                <div class="col ms-5">
+                                    <div class="ms-5 card text-center w-75">
+                                        <img src="../public/assets/Deluxe-Room.jpg" height="200" class="card-img-top">
+                                        <div class="card-footer">
+                                            <input type="radio" id="optDeluxe" class="form-check-input" name="Room" value="Deluxe King Room, Guest Room">
+                                            <label>Deluxe Room</label>
+                                            <div class="mt-2">
+                                                <button onclick="DeluxeRate()" class="btn btn-danger">Check Rates</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card text-center w-75">
+                                        <img src="../public/assets/Suite-Room.jpg" height="200" class="card-img-top">
+                                        <div class="card-footer">
+                                            <input type="radio" id="optSuite" class="form-check-input" name="Room" value="Deluxe Suite, Concierge Lounge Access">
+                                            <label>Suite Room</label>
+                                            <div class="mt-2">
+                                                <button onclick="SuiteRate()" class="btn btn-danger">Check Rates</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="btn btn-secondary w-100" data-bs-target="#Amenities" data-bs-toggle="collapse">Select Amenities</button>
+                    </h2>
+                    <div class="accordion-collapse collapse" id="Amenities" data-bs-parent="#form">
+                        <div class="accordion-body bg-dark">
+                            <div class="row my-3">
+                                <div class="col ms-5">
+                                    <div class="ms-5 card text-center w-75">
+                                        <img src="../public/assets/Fitness.jpg" height="200" class="card-img-top">
+                                        <div class="card-footer">
+                                            <input type="checkbox" id="optFitness" class="form-check-input" value="Fitness Center">
+                                            <label>Fitness Center</label>
+                                            <div class="mt-2">
+                                                <button onclick="GymRate()" class="btn btn-danger">Check Rates</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card text-center w-75">
+                                        <img src="../public/assets/Spa.jpg" height="200" class="card-img-top">
+                                        <div class="card-footer">
+                                            <input type="checkbox" id="optSpa" class="form-check-input" value="Spa Treatment Room">
+                                            <label>Spa Treatment Room</label>
+                                            <div class="mt-2">
+                                                <button onclick="SpaRate()" class="btn btn-danger">Check Rates</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="btn btn-secondary w-100" data-bs-target="#Amount" data-bs-toggle="collapse">Advance Amount</button>
+                    </h2>
+                    <div class="accordion-collapse collapse" id="Amount" data-bs-parent="#form">
+                        <div class="accordion-body bg-dark text-white">
+                            <dl class="row text-center mt-4">
+                                <dt class="col-5">Advance Amount</dt>
+                                <dd class="col-5"><input type="number" id="Advance" class="form-control" value="5000"></dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="my-3">
+            <div class="text-center">
+                <button  onclick="RegisterClick()" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#Summary">Register</button>
+            </div>
+            <div class="modal fade" id="Summary">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header" style="background-color: cornflowerblue;">
+                            <h3>Bill Summary</h3>
+                            <button class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body" style="background-color: dodgerblue;">
+                            <dl class="row">
+                                <dt class="col-5">Customer Name</dt>
+                                <dd class="col-7" id="lblName"></dd>
+                                <dt class="col-5">Check In Date</dt>
+                                <dd class="col-7" id="lblDate"></dd>
+                                <dt class="col-5">Total Number of Days</dt>
+                                <dd class="col-7" id="lblDays"></dd>
+                                <dt class="col-5">Total Number of Persons</dt>
+                                <dd class="col-7" id="lblPersons"></dd>
+                                <dt class="col-5">Room Type</dt>
+                                <dd class="col-7" id="lblRoom"></dd>
+                                <dt class="col-5">Amenities</dt>
+                                <dd class="col-7" id="lblAmenities"></dd>
+                                <dt class="col-5">Total Amount</dt>
+                                <dd class="col-7" id="lblTotal"></dd>
+                                <dt class="col-5">Advance Amount</dt>
+                                <dd class="col-7" id="lblAdv"></dd>
+                                <dt class="col-5">Balance Amount</dt>
+                                <dd class="col-7" id="lblBal"></dd>
+                            </dl>
+                        </div>
+                        <div class="modal-footer" style="background-color: lightskyblue;">
+                            <button class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                            <button class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="../node_modules/jquery/dist/jquery.js"></script>
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    </body>
+</html>

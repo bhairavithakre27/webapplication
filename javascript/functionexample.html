@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Function Example</title>
+        <style>
+            meter {
+                height: 20px;
+            }
+        </style>
+        <script>
+            function GradeMeter(min,max,value,low,high){
+                var grade=document.getElementById("grade");
+               grade.min =min;
+               grade.max=max;
+               grade.value=value;
+               grade.low=low;
+               grade.high=high;
+
+            }
+            function VerifyPassword(){
+               var pwd = document.getElementById("txtPwd").value;
+               console.log(pwd);
+                var msg= document.getElementById("msg");
+                var regEx = /(?=.*[A-Z]\w{4,10})/;
+                if(pwd.match(regEx))
+                {
+                    msg.innerHTML="Strong Password";
+                    msg.style.color="green";
+                    GradeMeter(1,100,100,0,0);
+
+                } else {
+                    if(pwd.length<=3){
+                        GradeMeter(1,100,100,60,80);
+                        msg.innerHTML="poor Password";
+                        msg.style.color="red";
+
+                    } else {
+                        GradeMeter(1,100,100,30,80);
+                        msg.innerHTML="week Passwprd";
+                        msg.style.color="orange";
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <fieldset>
+            <fieldset>
+                <legend>Password</legend>
+                <input type="password" onkeyup="VerifyPassword()" id="txtPwd">
+                <meter id="grade"></meter>
+                <div>
+                    <span id="msg"></span>
+                </div>
+            </fieldset>
+        </fieldset>
+    </body>
+</html>

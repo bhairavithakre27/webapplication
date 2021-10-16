@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Shopping Card</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script>
+       $(function(){
+           function GetCategories(){
+               fetch("https://fakestoreapi.com/products/categories")
+               .then(response => response.json())
+               .then(data=> {
+                   data.unshift("All");
+                   $.each(data,function(key,value){
+                       $(`<option>${value.toUpperCase()}</option>`).appendTo("#lstCategories");
+                   })
+               })
+           }
+
+         
+
+           function LoadProducts(data){
+            $.each(data,function(key,value){
+                    $(`
+                   <div class="card m-2 w-25">
+                    <img src=${value.image} height="150" class="card-img-top">
+                    <div class="card-header" style="height=200px">
+                        <p>${value.title}</p>
+                        <p>${value.price}</p>
+                        </div> 
+                        <div class="card-footer">
+                            <button value=${value,id} class="btn btn-danger w-100"><span class="bi bi-cart4"></span>Add to Cart</button>
+                            </div>
+                    </div>
+                   `).appendTo("#catlog");
+                       
+                  })
+          
+           }
+           function GetProducts(){
+               fetch("https://fakestoreapi.com/products")
+               .then(response=>response.json())
+               .then(data=>{
+                 LoadProducts(data);
+               })
+               
+           }
+           GetCategories();
+           GetProducts();
+
+           $("#lstCategories").change(function(event){
+              var categoryName = event.target.value.toLowerCase();
+              if(categoryName=="all"){
+                  GetProducts();
+              } else {
+                  fetch(`https://fakestoreapi.com/products/category/${categoryName}`)
+                  .then(response=> response.json())
+                  .then(data=>{
+                      $("#catlog").html("");
+                      LoadProducts(data);
+                  })
+                }
+          })
+
+         
+ })
+    </script>
+    </head>
+    <body class="container-fluid">
+        <header class="bg-danger text-white text-center p-2">
+            <div class="d-flex justify-content-between">
+                <div><h1><span class="bi bi-cart"></span>Amazon Shopping</h1></div>
+                <div>Your Cart Items [<span id="cartCount"></span>]</div>
+            </div>
+        </header>
+        <div class="row">
+            <div class="col-3">
+            <div>
+                <label class="form-label"></label>
+                <div>
+                    <select class="form-select" id="lstCategories">
+        
+                    </select>
+                     </div>
+            </div>
+            </div>
+            <div class="col-9">
+                <div class="d-flex flex-wrap overflow-auto" id="catlog" style="height:500px">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </body>
+</html>

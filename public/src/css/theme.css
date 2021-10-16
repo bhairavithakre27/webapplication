@@ -1,0 +1,13 @@
+.container {
+  background-color: yellow;
+  border: 3px solid red;
+  margin: 100px;
+}
+
+.container h2 {
+  box-shadow: 3px 4px 3px gray;
+  border: 3px solid red;
+  padding: 15px;
+  margin: 100px;
+}
+/*# sourceMappingURL=theme.css.map */

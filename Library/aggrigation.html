@@ -1,0 +1,18 @@
+<script>
+    class Super
+    {
+        Print(){
+            document.write("Super class Print Method<br>");
+       }
+    }
+    class Derived 
+    {
+        Print(){
+            let obj = new Super();
+            obj.Print();
+            document.write("Derived CLass Print Method<br>");
+        }
+    }
+    let obj = new Derived();
+    obj.Print();
+</script>

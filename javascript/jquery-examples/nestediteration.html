@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Demo</title>
+        <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function(){
+            var menu =[
+                {Category:"Electronics",Products:["TV","Mobile"]},
+                {Category:"Footwear",Products:["Nike Casuals","Lee Boot"]}
+            ];
+            $.each(menu,function(key,value){
+                $(`<li>${value.Category}</li>`).appendTo("ol");
+                $.each(value.Products,function(innerKey,innerValue){
+                    $(`<ul><li>${innerValue}</li><ul>`).appendTo("ol");
+                })
+            })
+        })
+    </script>
+    </head>
+    <body>
+      <ol>
+          
+      </ol>
+    </body>
+</html>

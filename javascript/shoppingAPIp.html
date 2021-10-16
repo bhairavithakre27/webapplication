@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Shopping</title>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+       <style>
+           .card{
+               width: 300px;
+               margin:10px;
+
+           }
+       </style>
+<script>
+    function GetCategories(){
+          fetch("https://fakestoreapi.com/products/categories")
+          .then(function(response){
+              return response.json();
+          })
+          .then(function(data){
+              data.unshift("ALL");
+              for(var item of data)
+              {
+                  var option = document.createElement("option");
+                  option.text = item.toUpperCase();
+                  option.value = item;
+                  document.getElementById("lstCategories").appendChild(Option);
+              }
+            
+          })
+    }
+
+    function GetProducts(){
+        fetch("https://fakestoreapi.com/products")
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(data){
+            for(var item of data)
+            {
+            
+                var card = document.createElement("div");
+                card.className="card";
+                card.innerHTML = `
+                <img src=${item.image} height="200" class="card-img-top">
+                <div class="card-header" style="height=200px">
+                    <p>${item.title}</p>
+                    </div>
+                    <div class="card-footer">
+
+                        <p>${item.price}</p>
+                        </div>
+                `;
+                document.getElementById("productsContainer").appendChild(card);
+            }
+        })
+    }
+    function bodyload(){
+        GetCategories();
+        GetProducts();
+    }
+</script>
+
+    </head>
+<body class="container-fluid" onload="bodyload()">
+<header class="bg-danger text-white text-center p-2">
+    <h3><span class="bi bi-cart3"></span>Shopping Cart</h3>
+</header>
+<section class="mt-2">
+ <div class="row">
+     <div class="col-3">
+       <h3>Select Category</h3>
+       <select class="form-select" id="lstCategories">
+
+       </select>
+     </div>
+     <div class="col-9">
+         <div id="productsContainer" class="d-flex flex-wrap overflow-auto" style="height:400px;">
+
+     </div>
+
+ </div>
+ </div>
+</section>
+</body>
+</html>

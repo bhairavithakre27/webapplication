@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery</title>
+        <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+        <script src="/node_modules/jquery/dist/jquery.js"></script>
+           
+        <script>
+            $(function(){
+                $("button").click(function(){
+                    $("#lblName").html($("#Name").val());
+                    $("#lblPrice").html($("#Price").val());
+                    $("#lblCity").html($("#City").val());
+              
+                if($("#Stock").prop("checked"))
+                {
+                    $("#lblStock").html("Available");
+                } else {
+                    $("#lblStock").html("Out of Stock");
+                }
+                })
+            })
+        </script>
+
+    </head>
+    <body class="container-fluid">
+        <div class="row">
+            <div class="col-3">
+              <dl>
+                  <dt>Name</dt>
+                  <dd><input type="text" id="Name" class="form-control"></dd>
+                  <dt>Price</dt>
+                  <dd><input type="text" id="Price" class="form-control"></dd>
+                   <dt>Shipped TO</dt>
+                   <dd>
+                       <select id="City" class="form-select">
+                           <option>Delhi</option>
+                           <option>HYd</option>
+                       </select>
+                   </dd>
+                   <dt>Stock</dt>
+                   <dd class="form-check form-switch">
+                    <input type="checkbox" class="form-check-input" id="Stock"> yes
+                </dd>
+                </dl>
+                <button  class="btn btn-primary">Register</button>
+            </div>
+            <div class="col-9">
+               <dl class="row">
+                   <dt class="col-3">Name</dt>
+                   <dd class="col-9"id="lblName"></dd>
+                   <dt class="col-3">Price</dt>
+                   <dd class="col-9" id="lblPrice"></dd>
+                   <dt class="col-3">Shipped TO</dt>
+                   <dd class="col-9" id="lblCity"></dd>
+                   <dt class="col-3">Stock</dt>
+                   <dd class="col-9" id="lblStock"></dd>
+               </dl>
+            </div>
+
+        </div>
+
+    </body>
+</html>

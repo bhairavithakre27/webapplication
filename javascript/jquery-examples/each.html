@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Demo</title>
+        <script src="/node_modules/jquery/dist/jquery.js"></script>
+        <script>
+             $(function(){
+                 var categories = ["Electronics","Footwear","Fashion"];
+                   $.each(categories,function(key,value){
+                       $(`<li>[${key}]${value}</li>`).appendTo("ol");
+                       $(`<option>${value}</option>`).appendTo("select");
+                   })
+                })
+        </script>
+    </head>
+    <ol></ol>
+    <select></select>
+</html>

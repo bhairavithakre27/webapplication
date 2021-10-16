@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Boolean</title>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+  <script>
+      function YesClick(){
+          document.write("Record Deleted");
+      }
+      function NoClick(){
+          return false;
+      }
+  </script>
+    
+    </head>
+<body class="container-fluid">
+    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete">Delete</button>
+  <div class="modal fade" id="delete">
+<div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+         Are You sure, want to delete?
+      </div>
+       <div class="modal-footer">
+        <button onclick="YesClick()" class="btn btn-primary" data-bs-dismiss="modal">Yes</button>
+        <button onclick="NoClick()" class="btn btn-danger" data-bs-dismiss="modal">NO</button>
+       </div>
+    </div>
+  </div>
+  </div>
+  <script src="../node_modules/jquery/dist/jquery.js"></script>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

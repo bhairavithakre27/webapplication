@@ -1,0 +1,15 @@
+
+@import "variables";
+@mixin SetEffects {
+    .container {
+        background-color: $bgcolor;
+        border:$border;
+        margin: $margin;
+        h2 {
+            box-shadow: $shadow;
+            border:$border;
+            padding:15px;
+            margin:$margin;
+        }
+    }
+}

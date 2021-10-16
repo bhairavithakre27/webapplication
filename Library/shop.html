@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Shopping</title>
+        <script>
+            class FakestoreAPI
+            {
+                categories =[];
+                constructor(){
+                  fetch('http://fakestoreapi.com/product/categories')
+                  .then(response=> response.json())
+                  .then(data=>{
+                      this.categories = data;
+                  })
+                }
+            }
+            let api = new FaketoreAPI();
+            function bodyload(){
+                for(var item of data){
+
+                }
+            }
+        </script>
+    </head>
+    <body onload="bodyload()">
+        <h2>Categories</h2>
+        <ol id="lstCategories">
+
+        </ol>
+    </body>
+</html>

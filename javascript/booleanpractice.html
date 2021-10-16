@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Boolean</title>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script>
+        function StockChange(){
+            lblStock = document.getElementById("lblStock");
+            var Stock = document.getElementById("Stock");
+            var btnCart = document.getElementById("btnCart");
+
+            if(Stock.checked==true){
+                lblStock.innerHTML ="Available";
+                btnCart.disabled = false;
+            } else {
+                lblStock.innerHTML ="Out of Stock";
+                btnCart.disabled = true;
+            }
+        }
+        function PreviewChange(){
+            var Preview = document.getElementById("Preview");
+            var ProductPhoto = document.getElementById("ProductPhoto");
+
+            if(Preview.checked==true){
+                ProductPhoto.style.display = "block";
+            } else {
+                ProductPhoto.style.display = "none";
+            }
+        }
+    </script>
+    
+    </head>
+    <body class="container-fluid">
+        <fieldset>
+            <legend>Stock</legend>
+            <div class="form-check form-switch">
+ <input type="checkbox" id="Stock" onchange="StockChange()" class="form-check-input"> <label id="lblStock" class="form-check-label">Out of stock</label>
+            </div>
+            <div class="mt-2">
+           <button id="btnCart" class="btn btn-danger"> <span class="bi bi-cart4"></span>Add to Cart</button>
+            </div>
+        </fieldset>
+        <fieldset>
+        <label>Preview Image</label>
+         <div class="form-check form-switch">
+         <input type="checkbox" onchange="PreviewChange()" id="Preview" class="form-check-input">
+         </div>
+         <div class="mt-2" id="ProductPhoto" style="display:none;">
+          <img src="../public/assets/shoes.jpeg" width="100" height="100">
+         </div>
+        </fieldset>
+    </body>
+</html>

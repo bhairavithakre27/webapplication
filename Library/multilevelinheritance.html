@@ -1,0 +1,25 @@
+<script>
+    class Version1
+    {
+       Print(){
+           
+               document.write(`Version-1 Features <br>`);
+           }
+       }
+       class Version2 extends Version1
+       {
+           Print(){
+               super.Print();
+               document.write(`Version2 Features <br>`)
+           }
+       }
+    class  Version3 extends Version2
+    {
+        Print(){
+            super.Print();
+            document.write(`Version-3 Features <br>`)
+        }
+    }
+    let obj = new Version3();
+    obj.Print();
+</script>

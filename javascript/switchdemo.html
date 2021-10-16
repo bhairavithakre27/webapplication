@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Switch Demo</title>
+        <link rel ="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+<script>
+    var categories = ["Select a Cateogoty", "Electronics","Footwear","Fashion"];
+    var electronics =["Select Electronis","JBL Speaker","Earpods"];
+    var footwear = ["Select Footwear", "Nike Casuals","LeeBoot"];
+    var fashion = ["Select Fashion","Shirt","Jeans"];
+    var data =[
+        {Name:"JBL Speaker",Price:4600.55,Photo:"../public/assets/speaker.jpeg"},
+        {Name:"EarPods",Price:1600.55,Photo:"../public/assets/earpods.jpeg"},
+        {Name:"Nike Casuals",Price:6600.55,Photo:"../public/assets/shoes.jpeg"},
+        {Name:"LeeBoot",Price:2600.55,Photo:"../public/assets/LeeBoot.jpeg"},
+        {Name:"shirt",Price:23600.55,Photo:"../public/assets/shirt.jpeg"},
+        {Name:"saree",Price:19600.55,Photo:"../public/assets/saree.jpeg"}
+];
+    var products =[];
+    function LoadProducts(){
+            var lstProducts = document.getElementById("lstProducts");
+            lstProducts.innerHTML="";
+            for(var item of products){
+                var opt = document.createElement("option");
+                opt.innerHTML= item;
+                lstProducts.appendChild(opt);
+        }
+    }
+
+
+  function LoadCategories(){
+      for(var item of categories)
+      {
+          var opt = document.createElement("option");
+          opt.innerHTML = item;
+          document.getElementById("lstCategories").appendChild(opt);
+      }
+  }
+
+    function bodyload(){
+         LoadCategories();
+    }
+    function CategoryChanged(){
+             var selectedCategory = document.getElementById("lstCategories").value;
+             switch(selectedCategory)
+             {
+                 case "Electronics":
+                 products = electronics;
+                 LoadProducts();
+                 break;
+                 case "Footwear":
+                 products = footwear;
+                 LoadProducts();
+                 break;
+                 case "Fashion":
+                 products = fashion;
+                 LoadProducts();
+                 break;
+                 default:
+                     products = ["Select a Category"];
+                     LoadProducts();
+                     break;
+             }
+     }
+      var searchedProduct;
+     function ProductChanged(){
+         var selectedProduct = document.getElementById("lstProducts").value;
+         searchedProduct = data.find(function(product){
+             return product.Name == selectedProduct;
+         });
+        document.getElementById("pic").src=searchedproduct.Photo;
+        document.getElementById("lblName").innerHTML = searchedProduct.Name;
+        document.getElementById("lblPrice").innerHTML = searchedProduct.Price;
+     }
+</script>
+    </head>
+    <body class="container-fluid" onload="bodyload()">
+     <header class="bg-danger text-center text-white p-2">
+           Amazon Shopping
+     </header>
+     <section>
+         <div class="row">
+             <div class="col-3">
+                <div class="mt-2">
+                    <label>Select Category</label>
+                    <div>
+                        <select onchange="CategoryChanged()" class="form-select" id="lstCategories">
+
+                        </select>
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <label>Select Product</label>
+                    <div>
+                        <select onchange="ProductChanged()"class="form-select" id="lstProducts">
+
+                        </select>
+                    </div>
+                </div>
+                <div class="mt-2">
+                  <label>Product Details</label>
+                  <div class="card">
+                    <img height="200" id="pic" class="card-img-top">
+                    <div class="card-header">
+                        <h3 id="lblName"></h3>
+                        <p id="lblPrice"></p>
+                      </div>
+                      <div class="card-footer">
+                    <button class="btn btn-danger w-100">
+                      <span class="bi bi-cart3"></span>
+                      Add To Cart
+                    </button>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-9">
+
+                </div>
+              </div>
+         </section>
+    </body>
+</html>

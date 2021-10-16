@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Demo</title>
+        
+        <script src="/node_modules/jquery/dist/jquery.js"></script>
+        <script>
+           $(function(){
+               fetch("http://fakestoreapi.com/products")
+                 .then(response => response.json())
+                 .then(data => {
+                     $.each(data,function(key,value){
+                         $(`<li>${value.title}</li>`).appendTo("ol");
+                     })
+                 })
+           })
+        </script>
+    </head>
+    <body>
+<ol>
+
+</ol>
+    </body>
+</html>

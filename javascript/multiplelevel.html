@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Multiple Conditions</title>
+        <script>
+            var userdetails = {
+                 UserId : 'john_nit',
+                 Mobile: '+919145641223'
+            }
+            function LoginClick(){
+                var txtId = document.getElementById("txtId").value;
+                if(txtId==userdetails.UserId)
+                {
+                    document.write(`Login Success with User Id :${txtId}`);
+                } else if(txtId==userdetails.Mobile){
+                    document.write(`Hello !{}Login success with Mobile :${txtId}`);
+                } else {
+                    document.querySelector("h1").innerHTML = "Invalid UserId/Mobile";
+                }
+                  
+                }
+            
+        </script>
+    </head>
+    <body>
+        <fieldset>
+            <legend>User Login</legend>
+            <input type="text" id="txtId" placeholder="User Id /Mobile">
+            <button onclick="LoginClick()">Login</button>
+        </fieldset>
+        <h1 align="center"></h1>
+    </body>
+</html>

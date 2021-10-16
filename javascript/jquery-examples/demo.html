@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Demo</title>
+        <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script>
+    
+        $(function(){
+
+            var categories = ["Electronics","Footwear","Fashion"];
+            for(var category of categories){
+                $(`<li>${category}</li>`).appendTo("ol");
+                $(`<option>${category}<option>`).appendTo("select");
+            }
+
+        })
+    
+    </script>
+    
+    </head>
+    <body>
+        <ol></ol>
+        <select></select>
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Shopping</title>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+<script>
+    function GetProducts(id){
+        fetch(`https://fakestoreapi.com/products/${id}`)
+        .then(function(response){
+           return response.json();
+        })
+        .then(function(data){
+            document.getElementById("lblTitle").innerHTML=data.title;
+            document.getElementById("imgProduct").src=data.image;
+
+        })
+    }
+    var productid = 1;
+    function bodyload(){
+        GetProducts(productid);
+    }
+    function NextClick(){
+        productid++;
+        GetProducts(productid);
+ }
+ function PreviousClick(){
+     if(productid<=0){
+         alert(`product Id starts with 1`);
+         productid = 1;
+     } else {
+        productid--;
+        GetProducts(productid);
+     }
+     
+ }
+</script>
+
+    </head>
+<body class="container-fluid" onload="bodyload">
+ <div class="card text-center">
+     <div class="card-header">
+         <h3 id="lblTitle"></h3>
+     </div>
+     <div class="card-body">
+     <img id="imgProduct" width="70%" height="400">
+     </div>
+     <div class="card-footer">
+<button onclick="PreviousClick()"class="btn btn-danger"><span class="bi bi-arrow-left-circle"></span></button>
+<button onclick="NextClick()" class="btn btn-danger"><span class="bi bi-arrow-right-circle"></span></button>
+
+     </div>
+
+    </div>
+</body>
+</html>

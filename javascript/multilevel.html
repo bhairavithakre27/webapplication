@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Multi Level</title>
+        <script>
+            var userdetails = {
+                CardNumber:"44556677",
+                Cvv :"4455",
+                Expiry:"2022"
+            };
+               function PayClick(){
+                   var card = document.getElementById("txtCard").value;
+                   var cvv = document.getElementById("txtCvv").value;
+                   var year = document.getElementById("lstYear").value;
+                   var msg = document.getElementById("msg");
+                   
+                   if(card==userdetails.CardNumber) {
+                           if(cvv==userdetails.Cvv){
+                              if(year==userdetails.Expiry){
+                                  document.write(`<h2>Payment Success.. </h2>`);
+                              } else {
+                                  msg.innerHTML ="Invalid Expiry Year";
+                              }
+                           } else {
+                               msg.innerHTML ="invalid CVV";
+                           }
+                   } else{
+                       msg.innerHTML = "invalid card number";
+                   }
+                 
+                }
+                function VerifyCard(val){
+                        if(val==userdetails.CardNumber){
+                            document.getElementById("txtCvv").disabled=false;
+                        } 
+                   }
+                   
+                   function VerifyCvv(val){
+                        if(val==userdetails.Cvv){
+                            document.getElementById("lstYear").disabled=false;
+                        } 
+                   }
+
+                   function VerifyYear(val){
+                        if(val==userdetails.Expiry){
+                            document.getElementById("btnPay").disabled=false;
+                        } 
+                   }
+                   
+
+
+        </script>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Payment Details</legend>
+            <dl>
+                <dt>Card Number</dt>
+                <dd><input type="text" onkeyup="VerifyCard(this.value)" id="txtCard"></dd>
+                <dt>CVV</dt>
+                <dd><input type="text" onkeyup="VerifyCvv(this.value)" disabled id="txtCvv" size="4"></dd>
+                 <dt>Expiry</dt>
+                 <dd>
+                     <select onchange="VerifyYear(this.value)" disabled id="lstYear">
+                         <option>2021</option>
+                         <option>2022</option>
+                         <option>2023</option>
+                     </select>
+                 </dd>
+                </dl>
+                <button disabled id="btnPay" onclick="PayClick()">Pay</button>
+        </fieldset>
+        <h1 id="msg" align="center"></h1>
+    </body>
+</html>

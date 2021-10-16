@@ -1,0 +1,11 @@
+$leftMargin: 10px;
+@function SetMargin($baseMargin){
+    @return $baseMargin * $leftMargin;
+
+}
+.container {
+        margin: SetMargin(10);
+        h2 {
+            margin: SetMargin(20);
+        }
+}

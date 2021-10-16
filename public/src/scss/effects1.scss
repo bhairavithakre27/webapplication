@@ -1,0 +1,10 @@
+@mixin Styles($bgcolor,$border) {
+    .container {
+        background-color: $bgcolor;
+        border:$border;
+    }
+}
+
+
+@include Styles(yellow, 2px solid red);
+@include Styles(red, 4px solid black);

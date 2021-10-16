@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ajax</title>
+        <script src="/node_modules/jquery/dist/jquery.js"></script>
+        <script>
+             $(function(){
+                 $("button").click(function(){
+                     $.ajax({
+                         method: "GET",
+                         url:"help.txt",
+                         success:function(data){
+                             $("#container").html(data);
+                         },
+                         error:function(xhr){
+                             alert(`${xhr.status} - ${xhr.statusText}`);
+                         }
+                     })
+                 })
+             })
+             .ajaxStart(function(){
+                alert("Ajax Request Started");
+
+             })
+             .ajaxSuccess(function(){
+                 alert("Ajax Response Completed..");
+             })
+             .ajaxStop(function(){
+                 alert("Ajax Request Ends");
+             })
+             .ajaxError(function(xhr){
+                 alert("Something Went Wrong -" +xhr.statusText);
+             })
+
+        </script>
+    </head>
+    <body>
+     <button>Fetch Data</button>
+         <div id="container">
+
+         </div>
+    </body>
+</html>

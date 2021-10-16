@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Card</title>
+        <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+        <script>
+            function LoadCategories(){
+              fetch("https://fakestoreapi.com/products/categories")
+              .then(function(response){
+                  return response.json();
+
+              })
+              .then(function(data){
+                  for(var item of data)
+                  {
+                      var list = document.createElement("option");
+                    list.text=item.toUpperCase();
+                      
+                      document.getElementById("lstcategories").appendChild(list);
+
+
+                  }
+              })
+            }
+            function LoadProducts(){
+                fetch("https://fakestoreapi.com/products")
+                .then(function(response){
+                    return response.json();
+                })
+                .then(function(data){
+                   for(var item of data )
+                   {
+                   var card = document.createElement("div");
+                   card.className="card w-25 m-2";
+                     card.innerHTML=`
+                     <img src=${item.image} height="200" class="card-img-top">
+                     <div class="card-header" style="height:200px">
+                        <p>${item.title}</p>
+                        </div>
+                        <div class="card-footer">
+                         <p>${item.price}</p>
+                         </div>
+                     `;
+                     document.getElementById("lstProducts").appendChild(card);
+                   }
+
+                })
+            }
+          
+              function bodyload(){
+                LoadCategories();
+                LoadProducts();
+              }
+        </script>
+    </head>
+    <body class="container-fluid" onload="bodyload()">
+        <header class="bg-danger text-white text-center p-2">
+            <h1><span class="bi bi-cart2">Shopping Cart</span></h1>
+        </header>
+        <section class="mt-2">
+         <div class="mt-2">
+         <div class="row">
+             <div class="col-3">
+             <select class="form-select" id="lstcategories">
+                
+             </select>
+             </div>
+             <div class="col-9">
+               <div id="lstProducts" class="d-flex flex-wrap">
+
+               </div>
+             </div>
+
+         </div>
+         </div>
+        </section>
+
+    </body>
+</html>

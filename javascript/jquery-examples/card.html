@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JQuery</title>
+        <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+        <script src="/node_modules/jquery/dist/jquery.js"></script>
+        <script>
+           $(function(){
+               fetch("http://fakestoreapi.com/products")
+               .then(response => response.json())
+                .then(data => {
+                    $.each(data, function(key, value){
+                        $(`
+                         <div class="card w-25 mt-2">
+                          <img src=${value.image} height="200" class="card-img-top">
+                            <div class="card-header">
+                                <p>${value.title}</p> 
+                                </div>
+                            </div>
+                        
+                        
+                        `).appendTo("#catalog");
+                    })
+                })
+            })
+        </script>
+    </head>
+    <body class="container-fluid">
+    <div class="mt-2 d-flex flex-wrap" id="catalog">
+
+
+    </div>
+    </body>
+</html>

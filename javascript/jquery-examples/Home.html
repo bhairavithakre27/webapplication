@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JQuery</title>
+        <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function(){      //will load their library and keep it ready before the body section loaded
+           $("h1").text("Welcome toJQuery")
+           $("#heading2").text("write less - do more");
+           $(".para").text("jQuery is a library for JavaScript");
+        }) //Before DOM Content Loaded
+        $(document).ready(function(){  //DOMContentLoaded
+
+        })
+    </script>
+    
+    </head>
+    <body>
+        <h1></h1>
+        <h2 id="heading2"></h2>
+        <p class="para"></p>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<script>
+    class Developer
+    {
+        
+        FirstName = "Raj";
+        LastName = "Kumar";
+        Designation = "Developer";
+        Print(){
+            document.write(`${this.FirstName} ${this.LastName} - ${this.Designation}<br>`)
+        }
+    }
+    class DeveloperExtension extends Developer
+    {
+        constructor(){
+            super();
+            document.write(`----Developer Details----<br>`)
+        }
+        Role = "Developer Role : Build,debug,Test,Deploy";
+         Print(){
+             super.Print();
+             document.write(`${this.Role}`);
+         }
+    }
+    let developer = new DeveloperExtension();
+    developer.Print();
+</script>

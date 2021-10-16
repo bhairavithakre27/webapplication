@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Math</title>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+   <script>
+       function Captcha(){
+           let a = Math.random() * 10;
+           let b = Math.random() * 10;
+           let c = Math.random() * 10;
+           let d = Math.random() * 10;
+           let e = Math.random() * 10;
+           let f = Math.random() * 10;
+             
+           let code =`${Math.round(a)} ${Math.round(b)} ${Math.round(c)} ${Math.round(d)} ${Math.round(e)} ${Math.round(f)}`
+           return code;
+       }
+       var newCode;
+       function GenerateCode(){
+        newCode = Captcha();
+           document.getElementById("code").innerHTML = newCode;
+
+       }
+       function bodyload(){
+          GenerateCode();
+       }
+       function RefreshClick(){
+           GenerateCode();
+       }
+       function VerifyCode(){
+           var txtCode = document.getElementById("txtCode").value;
+           var  error = document.getElementById("error");
+           var code = newCode.split(' ');
+           var result = '';
+           for(var item of code){
+               result+=item;
+           }
+
+           if(result==txtCode){
+               error.innerHTML = "";
+           } else {
+            error.innerHTML = "Invalid code"
+           }
+       }
+   </script>
+   
+    </head>
+    <body class="container-fluid" onload="bodyload()">
+    <div class="mt-2 w-25">
+        <dl>
+            <dt>Username</dt>
+            <dd><input type="text" class="form-control"></dd>
+            <dt>Password</dt>
+            <dd><input type="text" class="form-control"></dd>
+            <dt>Verify Code<button onclick="RefreshClick()" class="btn"><span class="bi bi-arrow-repeat"></span></button></dt>
+             <dd id="code"></dd>
+             <dd><input type="text" onkeyup="VerifyCode()" id="txtCode" class="form-control"</dd>
+             <dd id="error" class="text-danger"></dd>
+        </dl>
+        <button class="btn btn-primary w-100">Login</button>
+    </div>
+    </body>
+</html>

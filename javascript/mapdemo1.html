@@ -1,0 +1,11 @@
+<script>
+    function f1()
+    {
+     var Mfd = new Date("2021-01-20");
+     var weekdays = ["sunday","monday","Tuesday","wednesday","thr","fri","sat"];
+     var months = ["January","Feb","March","Apr"];
+     Mfd.setMonth(2);
+     document.write(`${weekdays[Mfd.getDay()]}, ${Mfd.getDate()}-${months[Mfd.getMonth()]}-${Mfd.getFullYear()}`);
+    }
+    f1();
+</script>

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AACI,AAAA,UAAU,CAAC;EACP,gBAAgB,EAMR,MAAM;EALd,MAAM,EAKU,GAAG,CAAC,KAAK,CAAC,GAAG;CAJhC;;AAHD,AAAA,UAAU,CAAC;EACP,gBAAgB,EAOR,GAAG;EANX,MAAM,EAMO,GAAG,CAAC,KAAK,CAAC,KAAK;CAL/B",
+    "sources": [
+        "../scss/effects1.scss"
+    ],
+    "names": [],
+    "file": "effects1.css"
+}
